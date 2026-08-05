@@ -5,7 +5,7 @@ metadata:
  namespace: notes-app-ns
 spec:
  selector:
-   app: notes-app
+   app: app
  ports:
    - protocol: TCP
      port: 8000
