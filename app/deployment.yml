@@ -4,16 +4,16 @@ metadata:
   name : app-deploy
   namespace: notes-app-ns 
   labels:
-    app : notes-app
+    app : app
 spec:
   replicas: 1
   selector:
     matchLabels:
-     app: notes-app
+     app: app
   template:
     metadata:
       labels:
-        app: notes-app
+        app: app
     spec:
       containers:
       - name: notes-app-cont
