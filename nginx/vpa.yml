@@ -1,0 +1,24 @@
+kind: VerticalPodAutoscaler
+metadata:
+ name: nginx-vpa
+ namespace: nginx-ns
+spec:
+ targetRef:
+   apiVersion: "apps/v1"
+   kind: Deployment
+   name: nginx-deploy
+ updatePolicy:
+   updateMode: "Recreate"
+ resourcePolicy:
+   containerPolicies:
+   - containerName: "nginx-pod"
+     minAllowed:
+       cpu: 100m
+       memory: 128Mi
+     maxAllowed:
+       cpu: 110m
+       memory: 200Mi
+     controlledResources:
+     - cpu
+     - memory
+     controlledValues: RequestsAndLimits
